@@ -1,22 +1,73 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import Login from './Components/Login/Login';
+import {Router, Route, Switch} from 'react-router-dom';
+import history from './history';
 import './App.css';
-
+import Login from './Containers/Login/Login';
+import Profile from './Containers/Profile/Profile';
 
 class App extends Component {
   state = {
-    name: '',
-    email: ''
-  };
+    loggedIn: false,
+    person: {
+      name: '',
+      mail: ''
+    },
+    currentPath: history.location.pathname
+  }
+  // get email
+  emailHandler = event => {
+    let emailPerson = this.state.person;
+    let emailPersonCopy = {...emailPerson};
 
+    this.setState({
+      person: {
+        name: emailPersonCopy.name,
+        mail: event.target.value
+      }
+    })
+  }
+  // get name
+  nameHandler = event => {
+    let namePerson = this.state.person;
+    let namePersonCopy = {...namePerson};
+    this.setState({
+      person: {
+        name: event.target.value,
+        mail: namePersonCopy.mail
+      }
+    })
+  }
+  // go to /profile if user fills out form
+  handleLogin = event => {
+    event.preventDefault();
+    history.push('/profile');
+  }
+
+  componentDidMount(){
+    history.push('/login');
+  }
   render() {
     return (
-      <BrowserRouter>
-      <div className="App">
-        <Route path="/" exact render={Login} />
-      </div>
-      </BrowserRouter>
+        <Router history={history}>
+          <Switch>
+            <Route 
+            path="/login" 
+            render={() => 
+              <Login 
+              handleLogin={(event)=>this.handleLogin(event)}
+              handleName={(event)=>this.nameHandler(event)}
+              handleMail={(event)=>this.emailHandler(event)}
+              />}/>
+              <Route 
+              path="/profile"
+              exact
+              render={()=>
+              <Profile 
+              user={this.state.person}
+              />
+              }/>
+          </Switch>
+        </Router>
     );
   }
 }
