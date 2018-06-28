@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import ReactFileReader from 'react-file-reader';
-import SingleMsg from './Components/SingleMsg';
 import {Link} from 'react-router-dom';
+import SingleMsg from './Components/SingleMsg';
+import CoverPhoto from './Components/CoverPhoto';
+import ProfilePhoto from './Components/ProfilePhoto';
 import './Profile.css';
 // import default cover image and profile image
 import coverImage from '../../images/cover-image.jpg';
@@ -56,6 +57,7 @@ class Profile extends Component{
           'message': currentMessage
         },
       ],
+      remainingLength: 500,
       currentMessage: ''
     });
   }
@@ -92,43 +94,19 @@ class Profile extends Component{
     // more messages link
     let moreMessages = null;
     if(this.state.messages.length > 5){
-      moreMessages = (<Link to="/messages">Show all messages</Link>);
+      moreMessages = (<Link to="/messages">All Messages</Link>);
     }
-    let coverImageStyle = {
-      background: 'url(' + this.state.coverImage + ') center center no-repeat',
-      backgroundSize: 'cover',
-      height: '200px',
-      width: '100%',
-      position: 'relative'
-    };
-    let profileImageStyle = {
-      background: 'url(' + this.state.profileImage + ') center center no-repeat',
-      backgroundSize: 'cover',
-      height: '100px',
-      width: '100px',
-      position: 'relative'
-    };
     return(
       <section className="Profile">
         <div className="Profile-header">
-          <div className="Profile-cover">
-            <div style={coverImageStyle} className="cover-image">
-              <div className="Profile-cover-input">
-                <ReactFileReader handleFiles={this.handleProfileCover} fileTypes={[".png", ".jpg",".jpeg",".svg"]} base64={true}>
-                  <button className="btn">Upload</button>
-                </ReactFileReader>
-              </div>
-            </div>
-          </div>
-          <div className="Profile-image">
-            <div style={profileImageStyle} className="user-image">
-              <div className="Profile-image-input">
-                <ReactFileReader handleFiles={this.handleProfileImage} fileTypes={[".png", ".jpg",".jpeg",".svg"]} base64={true}>
-                  <button className="btn">Upload</button>
-                </ReactFileReader>
-              </div>
-            </div>
-          </div>
+          <CoverPhoto 
+          coverImage={this.state.coverImage}
+          handleProfileCover={this.handleProfileCover}
+          />
+          <ProfilePhoto 
+          profileImage={this.state.profileImage}
+          handleProfileImage={this.handleProfileImage}
+          />
         </div>
         <section className="Profile-data">
         <div className="Profile-user-info">
@@ -137,10 +115,13 @@ class Profile extends Component{
         </div>
         <div className="Profile-new-msg">
         <form className="Profile-new-msg-form" onSubmit={(event)=>this.handleNewMessage(event)}>
-          <input type="text" placeholder="Your Message" value={this.state.currentMessage} onChange={(event)=>this.handleSingleMessage(event)} required/>
-          {messageSubmit}
+          <textarea type="text" placeholder="Your Message" value={this.state.currentMessage} className="Profile-msg-input"onChange={(event)=>this.handleSingleMessage(event)} required/>
+          <div className="submit-parent">
+            {messageSubmit}
+            <p className="Profile-message-remaining-length">Characters left: {this.state.remainingLength}</p>
+          </div>
         </form>
-        <p className="Profile-message-remaining-length">Characters left: {this.state.remainingLength}</p>
+        
         </div>
         <div className="Profile-messages">
         {messages}

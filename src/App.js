@@ -4,6 +4,7 @@ import history from './history';
 import './App.css';
 import Login from './Containers/Login/Login';
 import Profile from './Containers/Profile/Profile';
+import Messages from './Containers/Messages/Messages';
 
 class App extends Component {
   state = {
@@ -42,7 +43,6 @@ class App extends Component {
     event.preventDefault();
     history.push('/profile');
   }
-
   componentDidMount(){
     history.push('/login');
   }
@@ -66,6 +66,12 @@ class App extends Component {
               user={this.state.person}
               />
               }/>
+              <Route
+              path="/messages" 
+              render={()=>
+                <Messages />}
+              />
+              >
           </Switch>
         </Router>
     );

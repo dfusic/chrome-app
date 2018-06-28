@@ -1,20 +1,28 @@
 .Profile{
   text-align: center;
   background-color: white;
-  max-width: 50%;
+  max-width: 40%;
   margin: 0 auto;
   box-sizing: border-box;
   min-height: 700px;
+  -webkit-box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  -moz-box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  border-radius: 5px;
 }
 .Profile-header{
-  height: 250px;
+  height: 200px;
 }
 .Profile-cover, .Profile-image{
   position: relative;
 }
+.cover-image{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 .Profile-cover{
   width: 100%;
-  height: 200px;
+  height: 150px;
 }
 .Profile-cover-input{
   width: 100%;
@@ -38,15 +46,157 @@
 }
 .user-image{
   background-size: cover!important;
+  border-radius: 5px;
+}
+.profile-btn{
+  width: 10px;
+  height: 10px;
+}
+.Profile-cover-input{
+  position: relative;
+}
+.Profile-cover-input > .react-file-reader{
+  position: absolute;
+  right: 0;
+}
+.cover-btn{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  opacity: 0;
+  cursor: pointer;
+}
+.change-cover-img{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+.Profile-name{
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 900;
+  font-size: 2em;
+  margin: 0;
+}
+.Profile-mail{
+  margin: 5px 0 5px 0;
+  opacity: .6;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+.Profile-image-input{
+position: relative;
+}
+.Profile-image-input > .react-file-reader{
+  position: absolute;
+  right: 0;
+}
+.profile-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  opacity: 0;
+}
+.profile-btn-img{
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 7px;
+  top: 8px;
 }
 .Profile-data{
   box-sizing: border-box;
-  padding: 25px;
+  padding: 0 0 25px 0;
 }
 .Profile-messages{
-  margin-top: 25px;
+  padding-top: 15px;
   text-align: left;
+  width: 80%;
+  margin: 0 auto;
 }
 .SingleMessage{
   font-family: 'Open Sans', sans-serif;
+  color: #4b4b4b;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  font-size: 14px;
+}
+.Profile-messages > .SingleMessage:last-child{
+  border: none!important;
+}
+.Profile-msg-input{
+  display: block;
+  margin: 0 auto;
+  resize: none;
+  height: 80px;
+  width: 80%;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  border: 4px double rgba(0,0,0,.1);
+
+}
+.Profile-msg-input::placeholder{
+  font-family: 'Open Sans', sans-serif;
+  opacity: .6;
+}
+.Profile-message-remaining-length{
+  display: inline;
+  opacity: .4;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  position: relative;
+  top: 8px;
+}
+.Profile-new-msg-form{
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+.Profile-data > a{
+  color: #56984a;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+}
+.submit-parent{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 85%;
+  margin: 10px auto;
+}
+.Profile input[type="submit"]{
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  background: rgb(136,183,101);
+  border: none;
+  background: rgb(136,183,101);
+  background: -moz-linear-gradient(top, #92df85 0%, #95b972 100%);
+  background: -webkit-linear-gradient(top, #92df85 0%,#95b972 100%);
+  background: linear-gradient(to bottom, #92df85 0%,#95b972 100%);
+  padding: 15px 35px;
+  margin-top: 10px;
+  position: relative; 
+  text-align: left;
+  border-radius: 5px;
+}
+.Profile [type="submit"]:disabled{
+  filter: grayscale(100%);
+}
+
+@media screen and (max-width: 768px){
+  .Profile{
+    max-width: 90%;
+  }
 }
