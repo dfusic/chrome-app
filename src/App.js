@@ -124,6 +124,7 @@ changeMsg = (event, key) => {
   }
 
   render() {
+    let messages = {...this.state.messages};
     return (
         <Router history={history}>
           <Switch>

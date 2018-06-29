@@ -3,16 +3,15 @@ import SingleMsg from './../Profile/Components/SingleMsg';
 
 class Messages extends Component{
   state={
-    messages: [
-      ...this.props.messages
-    ]
+    messages: this.props.messages
   }
-  componentDidMount(){
-   
-  }
+
   render(){
+    let xyz = (this.state.messages.map(msg=>{
+      return <SingleMsg msg="test"/>
+    }))
     return(
-      <h1>messages</h1>
+      {xyz}
     )
   }
 }
