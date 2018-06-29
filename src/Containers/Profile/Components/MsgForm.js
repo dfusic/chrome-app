@@ -15,7 +15,7 @@ const MsgForm = props => {
               <textarea
                 type="text"
                 placeholder="Your Message"
-                
+                value={props.currentMessage}
                 className="Profile-msg-input"
                 onChange={props.handleSingleMsg}
                 required

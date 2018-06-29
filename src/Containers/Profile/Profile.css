@@ -1,7 +1,7 @@
 .Profile{
   text-align: center;
   background-color: white;
-  max-width: 40%;
+  width: 400px;
   margin: 0 auto;
   box-sizing: border-box;
   min-height: 700px;
@@ -127,6 +127,24 @@ position: relative;
   color: #4b4b4b;
   border-bottom: 1px solid rgba(0,0,0,.1);
   font-size: 14px;
+  min-width: 300px;
+  display: block;
+  padding: 15px 0;
+  transition: height 200ms ease-in-out;
+}
+.SingleMessage > p{
+  margin: 0;
+}
+.SingleMessage-delete{
+  font-weight: bold;
+  color: red;
+  position: relative;
+  top: 7px;
+  display: none;
+  cursor: pointer;
+}
+.SingleMessage:hover .SingleMessage-delete{
+  display: block;
 }
 .Profile-messages > .SingleMessage:last-child{
   border: none!important;

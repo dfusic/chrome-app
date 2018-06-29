@@ -8,6 +8,9 @@
   -moz-box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
   box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
   border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }
 .Login > form{
   display: flex;
