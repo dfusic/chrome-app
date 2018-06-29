@@ -1,5 +1,4 @@
 import React from 'react';
-
 const MsgForm = props => {
   let messageSubmit = <input type="submit" value="Submit" />;
     // disable submit button if message is longer than 500 characters
@@ -16,10 +15,11 @@ const MsgForm = props => {
                 type="text"
                 placeholder="Your Message"
                 value={props.currentMessage}
+                minLength="1"
                 className="Profile-msg-input"
                 onChange={props.handleSingleMsg}
                 required
-              />
+              ></textarea>
               <div className="submit-parent">
                 {messageSubmit}
                 <p className="Profile-message-remaining-length">

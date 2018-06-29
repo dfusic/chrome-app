@@ -96,21 +96,23 @@ removeMsg = (event, key) => {
     messages: messagesState
   })
 }
-handleMsgChange = (event, key) => {
-  let selectedMsg = this.state.messages.findIndex(msg=>{
+changeMsg = (event, key) => {
+  // find selected message by key
+  let selectedMessage = this.state.messages.findIndex(msg=>{
     return msg.key === key;
   });
-  let messagesState = this.state.messages;
-  console.log(messagesState[selectedMsg]);
-  let cutMessage = messagesState.splice(selectedMsg, 1);
-  cutMessage.message = event.target.value;
-  console.log(cutMessage);
+  // copy messages
+  let messagesCopy = this.state.messages;
+  // get new input value
+  let newMsg = event.target.value;
+  // replace original message with new one in copied state
+  messagesCopy[selectedMessage].message = newMsg;
+  // set main state to copied one
   this.setState({
     messages: [
-      {...messagesState},
-      cutMessage
+      ...messagesCopy
     ]
-  })
+  });
 }
   // go to /profile if user fills out form
   handleLogin = event => {
@@ -145,7 +147,7 @@ handleMsgChange = (event, key) => {
               handleSingleMessage={(event=>this.handleSingleMessage(event))}
               currentMessage={this.state.currentMessage}
               removeMsg={this.removeMsg}
-              handleMsgChange={this.handleMsgChange}
+              changeMsg={this.changeMsg}
               />
               }/>
               <Route
@@ -153,6 +155,8 @@ handleMsgChange = (event, key) => {
               render={()=>
                 <Messages 
                 messages={this.state.messages}
+                removeMsg={this.removeMsg}
+                changeMsg={this.changeMsg}
                 />}
               />
               >

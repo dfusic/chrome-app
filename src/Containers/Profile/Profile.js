@@ -41,7 +41,7 @@ class Profile extends Component{
         key={msg.key}
         id={msg.key}
         removeMsg={this.props.removeMsg}
-        handleMsgChange={this.props.handleMsgChange}
+        changeMsg={this.props.changeMsg}
         />
       );
     })
