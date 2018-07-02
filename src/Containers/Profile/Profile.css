@@ -1,7 +1,7 @@
 .Profile{
   text-align: center;
   background-color: white;
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
   box-sizing: border-box;
   min-height: 700px;
@@ -178,7 +178,7 @@ position: relative;
   box-sizing: border-box;
 }
 .Profile-data > a{
-  color: #56984a;
+  color: rgb(136,183,101);
   font-size: 14px;
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;

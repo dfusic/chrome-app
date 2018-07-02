@@ -47,8 +47,8 @@ class Profile extends Component{
     })
     // more messages link
     let moreMessages = null;
-    if(this.props.messages.length > 5){
-      moreMessages = (<Link to="/messages">All Messages</Link>);
+    if(this.props.messages.length > 4){
+      moreMessages = (<Link to="/messages">All Messages	&rarr;</Link>);
     }
     return(
       <section className="Profile">

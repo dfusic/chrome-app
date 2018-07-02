@@ -1,0 +1,29 @@
+.Messages{
+  background-color: white;
+  width: 500px;
+  padding: 50px 25px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 700px;
+  -webkit-box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  -moz-box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  box-shadow: 0px 3px 15px 1px rgba(138,138,138,.3);
+  border-radius: 5px;
+}
+.Messages a{
+  color: rgb(136,183,101);
+  margin: 0 0 25px 10%;
+  text-decoration: none;
+}
+.Messages a:hover, .Messages a:focus{
+  opacity: .8;
+}
+.Messages > .SingleMessage{
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px){
+  .Messages{
+    max-width: 90%;
+  }
+}
