@@ -18,7 +18,7 @@ class Messages extends Component{
 
     return(
       <div className="Messages">
-      <Link to="/profile">Profile</Link>
+      <Link to="/profile">&larr;Profile</Link>
       {messagesOutput}
       </div>
     )

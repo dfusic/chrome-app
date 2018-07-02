@@ -132,19 +132,41 @@ position: relative;
   padding: 15px 0;
   transition: height 200ms ease-in-out;
 }
-.SingleMessage > p{
-  margin: 0;
+.SingleMessage > div[contenteditable="true"]{
+  color: #4b4b4b;
+}
+.SingleMessage:hover{
+  opacity: .8;
+}
+.SingleMessage:hover .SingleMessage-bottom, .SingleMessage:focus .SingleMessage-bottom {
+  opacity: 1;
 }
 .SingleMessage-delete{
   font-weight: bold;
   color: red;
   position: relative;
   top: 7px;
-  display: none;
+  display: inline-block;
+  opacity: 1;
   cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+}
+.SingleMessage-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  user-select: none;
+}
+.SingleMessage-edit-para{
+  color: #4b4b4b;
+  opacity: .5;
+  font-family: 'Open Sans', sans-serif;
 }
 .SingleMessage:hover .SingleMessage-delete{
-  display: block;
+  display: inline-block;
+  opacity: 1;
 }
 .Profile-messages > .SingleMessage:last-child{
   border: none!important;
