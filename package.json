@@ -1,8 +1,10 @@
 {
   "name": "chrome-app",
   "version": "0.1.0",
+  "homepage": "http://dfusic.github.io/chrome-app",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "react": "^16.4.1",
     "react-contenteditable": "^2.1.0",
     "react-dom": "^16.4.1",
@@ -13,6 +15,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
