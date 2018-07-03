@@ -139,8 +139,7 @@ position: relative;
   font-weight: bold;
   color: red;
   position: relative;
-  top: 7px;
-  display: none;
+  display: inline-block;
   cursor: pointer;
 }
 .SingleMessage:hover .SingleMessage-delete{
@@ -212,9 +211,41 @@ position: relative;
 .Profile [type="submit"]:disabled{
   filter: grayscale(100%);
 }
-
+.SingleMessage-footer{
+  display: flex;
+  position: relative;
+  top: 5px;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+.SingleMessage:hover, .SingleMessage:focus{
+  opacity: .9;
+}
+.SingleMessage-edit{
+  color: #4b4b4b;
+  opacity: .8;
+}
+.SingleMessage:hover .SingleMessage-footer{
+  opacity: 1;
+}
 @media screen and (max-width: 768px){
   .Profile{
     max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .Profile{
+    width: 80%;
+  }
+  .SingleMessage{
+    min-width: auto;
+  }
+}
+@media screen and (max-width: 400px){
+  .submit-parent{
+    flex-direction: column;
   }
 }

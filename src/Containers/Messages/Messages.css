@@ -27,3 +27,10 @@
     max-width: 90%;
   }
 }
+
+@media screen and (max-width: 550px){
+  .Messages{
+    width: 80%;
+    margin: 0 auto;
+  }
+}

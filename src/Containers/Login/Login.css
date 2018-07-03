@@ -54,3 +54,9 @@
   color: #4b4b4b;
   font-size: 1.1em;
 }
+
+@media screen and (max-width: 550px){
+  .Login{
+    width: 70%;
+  }
+}
