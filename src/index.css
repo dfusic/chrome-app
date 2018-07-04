@@ -1,6 +1,9 @@
 body, html {
   margin: 0;
+<<<<<<< HEAD
   padding: 50px;
+=======
+>>>>>>> b1cbbe5930ee4315c4509843a8bd4d163cbab14a
   font-family: sans-serif;
   display: flex;
   justify-content: center;
